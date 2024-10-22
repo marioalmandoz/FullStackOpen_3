@@ -1,7 +1,10 @@
 const express = require('express')
+const morgan = require('morgan')
+
 const app = express()
 
 app.use(express.json())
+app.use(morgan('tiny'))
 
 let persons = [
     { 
@@ -78,7 +81,8 @@ app.post('/api/persons', (request, response) => {
 
     persons = persons.concat(person)
 
-    console.log(person)
+    console.log('New person added:', person)
+    console.log('Updated persons list:', persons)
     response.json(person)
 })
 
