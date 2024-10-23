@@ -10,9 +10,13 @@ morgan.token('body', (req) => {
   })
   
   // Morgan middleware with custom format
-  app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
+  app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body')
+)
   
-  
+const cors = require('cors')
+
+app.use(cors())
+
 
 let persons = [
     { 
